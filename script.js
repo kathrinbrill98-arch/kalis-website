@@ -1,6 +1,6 @@
 // Baut Kacheln, Team und Galerie aus data.js auf. Hier normalerweise nichts ändern.
 const e=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
-const tiles=document.getElementById("tiles"),dlg=document.getElementById("dlg"),dc=document.getElementById("dc");
+const tiles=document.getElementById("tiles"),dlg=document.getElementById("dlg"),dc=document.getElementById("dc"),lb=document.getElementById("lb");
 
 const heute=new Date().toISOString().slice(0,10);
 // Preiszeile, mit Aktionspreis solange "aktionBis" nicht vorbei ist
@@ -22,7 +22,10 @@ LEISTUNGEN.forEach((l,i)=>{
   b.onclick=()=>zeigen(i);tiles.appendChild(b);
 });
 
-function oeffnen(){if(!dlg.open)dlg.showModal();dc.scrollTop=0}
+// Fenster öffnen/schließen (eigene Lösung statt <dialog>, damit es auf dem iPhone zuverlässig läuft)
+function auf(m){m.hidden=false;document.documentElement.classList.add("modal-offen")}
+function zu(m){m.hidden=true;if(dlg.hidden&&lb.hidden)document.documentElement.classList.remove("modal-offen");if(m===dlg)dc.innerHTML=""}
+function oeffnen(){auf(dlg);dc.scrollTop=0}
 
 function zeigen(i){
   const l=LEISTUNGEN[i];
@@ -48,15 +51,15 @@ function waehlen(){
     AGB_HINWEIS+'<div style="height:30px"></div></div>';
   oeffnen();
 }
-document.getElementById("zu").onclick=()=>dlg.close();
-dlg.addEventListener("close",()=>{dc.innerHTML=""});
+document.getElementById("zu").onclick=()=>zu(dlg);
+document.addEventListener("keydown",ev=>{if(ev.key==="Escape"){if(!lb.hidden)zu(lb);else if(!dlg.hidden)zu(dlg)}});
 
 // Handy-Menü (☰)
 const burger=document.getElementById("burger"),menu=document.getElementById("menu");
 function menuZu(){menu.classList.remove("auf");burger.setAttribute("aria-expanded","false")}
 burger.onclick=()=>{const auf=menu.classList.toggle("auf");burger.setAttribute("aria-expanded",auf)};
 menu.querySelectorAll("a").forEach(a=>a.addEventListener("click",menuZu));
-dlg.addEventListener("click",ev=>{if(ev.target===dlg)dlg.close()});
+dlg.addEventListener("click",ev=>{if(ev.target===dlg)zu(dlg)});
 
 // Gesamt-Preisliste: alle Leistungen mit allen Preisen auf einen Blick
 // Am Handy sind die Bereiche zum Aufklappen, am PC immer offen.
@@ -88,14 +91,14 @@ document.getElementById("team-g").innerHTML=TEAM.map(m=>"<div>"+
 const ANZAHL=9,gal=document.getElementById("gal"),mehr=document.getElementById("gal-mehr");
 gal.innerHTML=GALERIE.map((u,i)=>'<button class="gi'+(i>=ANZAHL?' zu':'')+'" data-i="'+i+'" aria-label="Bild '+(i+1)+' vergrößern"><img loading="lazy" src="'+e(u)+'" alt="Einblick ins Kosmetikstudio Kalis Cosmetics in Zierenberg bei Kassel"></button>').join("");
 if(GALERIE.length>ANZAHL){mehr.hidden=false;mehr.onclick=()=>{gal.querySelectorAll(".zu").forEach(b=>b.classList.remove("zu"));mehr.hidden=true}}
-const lb=document.getElementById("lb"),lbImg=document.getElementById("lb-img");let lbI=0;
+const lbImg=document.getElementById("lb-img");let lbI=0;
 function zeigeBild(i){lbI=(i+GALERIE.length)%GALERIE.length;lbImg.src=GALERIE[lbI];lbImg.alt="Einblick "+(lbI+1)+" von "+GALERIE.length}
-gal.querySelectorAll(".gi").forEach(b=>b.onclick=()=>{zeigeBild(+b.dataset.i);lb.showModal()});
+gal.querySelectorAll(".gi").forEach(b=>b.onclick=()=>{zeigeBild(+b.dataset.i);auf(lb)});
 document.getElementById("lb-prev").onclick=()=>zeigeBild(lbI-1);
 document.getElementById("lb-next").onclick=()=>zeigeBild(lbI+1);
-document.getElementById("lb-zu").onclick=()=>lb.close();
-lb.addEventListener("click",ev=>{if(ev.target===lb)lb.close()});
-lb.addEventListener("keydown",ev=>{if(ev.key==="ArrowLeft")zeigeBild(lbI-1);if(ev.key==="ArrowRight")zeigeBild(lbI+1)});
+document.getElementById("lb-zu").onclick=()=>zu(lb);
+lb.addEventListener("click",ev=>{if(ev.target===lb)zu(lb)});
+document.addEventListener("keydown",ev=>{if(lb.hidden)return;if(ev.key==="ArrowLeft")zeigeBild(lbI-1);if(ev.key==="ArrowRight")zeigeBild(lbI+1)});
 // Wischen auf dem Handy
 let tx=0;lb.addEventListener("touchstart",ev=>tx=ev.touches[0].clientX,{passive:true});
 lb.addEventListener("touchend",ev=>{const d=ev.changedTouches[0].clientX-tx;if(Math.abs(d)>40)zeigeBild(lbI+(d<0?1:-1))});
