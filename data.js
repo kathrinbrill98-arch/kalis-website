@@ -28,7 +28,7 @@ const AKTUELLES = [
       { "name": "Hüfte, Rücken, Beine oder Arme", "statt": "460 €", "preis": "389 €" }
     ],
     "hinweis": "Nur für Termine, die im November gebucht werden und auch im November stattfinden.",
-    "bild": "img/aktuell/kryolipolyse-special.jpg",
+    "bild": "kryolipolyse-special.jpg",
     "bildGanz": true,
     "gross": true,
     "bis": "2026-11-30",
@@ -38,7 +38,7 @@ const AKTUELLES = [
     "label": "Special",
     "titel": "Cashmere Brows",
     "text": "Natürlich schöne Augenbrauen: feine Hairstrokes mit softer Schattierung. Bis Jahresende für 299 € statt 399 €, buchbar ab dem 23.11.",
-    "bild": "img/aktuell/cashmere.jpg",
+    "bild": "cashmere.jpg",
     "bis": "2026-12-31",
     "buchen": "kathi"
   },
@@ -46,7 +46,7 @@ const AKTUELLES = [
     "label": "Gutschein-Special",
     "titel": "Brows zum Verschenken",
     "text": "Cashmere Brows als Gutschein für 299 € statt 399 €, einzulösen bis 01.04.2027. Schreiben Sie uns einfach eine Nachricht.",
-    "bild": "img/einblick-3.jpg",
+    "bild": "einblick-3.jpg",
     "bis": "2026-12-31",
     "buchen": "",
     "link": "mailto:info@kaliscosmetics.de?subject=Gutschein%20Cashmere%20Brows&body=Hallo%20Kathi%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Cashmere-Brows-Gutschein%20f%C3%BCr%20299%20%E2%82%AC.%0A%0AViele%20Gr%C3%BC%C3%9Fe",
@@ -56,7 +56,7 @@ const AKTUELLES = [
     "label": "Neu im Team",
     "titel": "Anna",
     "text": "Massagen & therapeutische Behandlungen. Anna ist gelernte MFA und Massagetherapeutin. Termine ab sofort online buchbar.",
-    "bild": "img/anna.jpg",
+    "bild": "anna.jpg",
     "bis": "",
     "buchen": "lisa"
   },
@@ -67,14 +67,14 @@ const AKTUELLES = [
     "preise": [
       { "name": "Nägel zum Modellpreis", "statt": "60 €", "preis": "ab 40 €" }
     ],
-    "bild": "img/laura.jpg",
+    "bild": "laura.jpg",
     "bis": "",
     "buchen": "lisa"
   }
 ];
 
 // Kacheln: jede Leistung ist ein Eintrag. Daraus wird auch die Gesamt-Preisliste gebaut.
-// "bild": Foto auf der Kachel (z. B. "img/waxing.jpg").
+// "bild": Foto auf der Kachel (z. B. "waxing.jpg").
 // "preisHinweis": Hinweis über den Preisen (z. B. „gilt ab …“), mit "preisHinweisBis" automatisch ausgeblendet.
 // Aktionspreis: bei einem Preis "aktion" und "aktionBis" (JJJJ-MM-TT) ergänzen.
 // Bis zu diesem Tag steht der Aktionspreis da, danach automatisch wieder der normale Preis.
@@ -82,7 +82,7 @@ const AKTUELLES = [
 const LEISTUNGEN = [
   {
     "titel": "Permanent Make-up",
-    "bild": "img/lippen-1.jpg",
+    "bild": "lippen-1.jpg",
     "wer": "Kathi",
     "text": "Natürlich betonte Augenbrauen und ausdrucksvolle Lippen. Ich nehme mir Zeit für Ihre Wünsche und berate Sie persönlich.",
     "gruppen": [
@@ -127,7 +127,7 @@ const LEISTUNGEN = [
   },
   {
     "titel": "Waxing",
-    "bild": "img/waxing.jpg",
+    "bild": "waxing.jpg",
     "wer": "Kathi",
     "text": "Sanftes Waxing für glatte Haut, auch für Männer. Weitere Körperareale auf Anfrage.",
     "gruppen": [
@@ -221,7 +221,7 @@ const LEISTUNGEN = [
   },
   {
     "titel": "Nageldesign",
-    "bild": "img/naegel-kirschen.jpg",
+    "bild": "naegel-kirschen.jpg",
     "wer": "Laura",
     "text": "Gepflegte Nägel in Natur, Farbe oder Design. Neue Nageltermine vergibt aktuell Laura.",
     "preisHinweis": "Die hier genannten Nagelpreise gelten ab Januar 2027. Bis dahin gelten die aktuellen Preise, die Sie bei der Online-Buchung (Planity) sehen.",
@@ -273,7 +273,7 @@ const LEISTUNGEN = [
   },
   {
     "titel": "Wimpern & Brauen",
-    "bild": "img/wimpern-auge.jpg",
+    "bild": "wimpern-auge.jpg",
     "wer": "Lisa",
     "text": "Lifting, Färben und Wimpernverlängerung für einen offenen, gepflegten Blick.",
     "gruppen": [
@@ -349,7 +349,7 @@ const LEISTUNGEN = [
   },
   {
     "titel": "Kosmetik & Gesicht",
-    "bild": "img/einblick-2.jpg",
+    "bild": "einblick-2.jpg",
     "wer": "Lisa",
     "text": "Die klassische Gesichtsbehandlung mit gründlicher Reinigung, Peeling, Ausreinigung, Maske und Pflege, individuell erweiterbar mit Zusatzpaketen.",
     "gruppen": [
@@ -426,7 +426,7 @@ const LEISTUNGEN = [
   },
   {
     "titel": "Kryolipolyse & Lymphdrainage",
-    "bild": "img/kryolipolyse-bauch.jpg",
+    "bild": "kryolipolyse-bauch.jpg",
     "wer": "Lisa",
     "text": "Kryolipolyse: eine nicht invasive Anwendung zur Körperformung. Dazu Brasilianische Lymphdrainage.",
     "gruppen": [
@@ -480,7 +480,7 @@ const LEISTUNGEN = [
   },
   {
     "titel": "Fußpflege",
-    "bild": "img/fusspflege-1.jpg",
+    "bild": "fusspflege-1.jpg",
     "wer": "Sonja",
     "text": "Als Fußpflegerin habe ich meine Berufung gefunden. Ich helfe Menschen, sich wohlzufühlen und ihre Gesundheit zu verbessern.",
     "gruppen": [
@@ -545,7 +545,7 @@ const LEISTUNGEN = [
   },
   {
     "titel": "Massage & Therapie",
-    "bild": "img/massage-ruecken.jpg",
+    "bild": "massage-ruecken.jpg",
     "wer": "Anna",
     "text": "Massagen und therapeutische Behandlungen von Anna, MFA und Massagetherapeutin. Ob wohltuende Entspannung, gezielte Behandlung von Verspannungen oder einfach eine kleine Auszeit vom Alltag.",
     "gruppen": [
@@ -571,36 +571,36 @@ const LEISTUNGEN = [
   }
 ];
 
-// Team (foto leer lassen = beiger Kreis, sonst Pfad wie "img/kathi.jpg")
+// Team (foto leer lassen = beiger Kreis, sonst Pfad wie "kathi.jpg")
 const TEAM = [
   {
     "name": "Kathi",
     "rolle": "Permanent Make-up, Waxing, Nageldesign",
-    "foto": "img/kathi.jpg",
+    "foto": "kathi.jpg",
     "text": "Ich möchte, dass Sie sich rundum wohlfühlen und Ihre natürliche Schönheit zur Geltung kommt."
   },
   {
     "name": "Lisa",
     "rolle": "Kosmetik, Kryolipolyse, Wimpern, Brauen, Nageldesign",
-    "foto": "img/lisa.jpg",
+    "foto": "lisa.jpg",
     "text": "Seit 2017 arbeite ich in der Beauty-Branche. Mein Anspruch ist das bestmögliche Ergebnis für Sie."
   },
   {
     "name": "Sonja",
     "rolle": "Fußpflege",
-    "foto": "img/sonja.jpg",
+    "foto": "sonja.jpg",
     "text": "Ich verbinde meine Leidenschaft für Pflege und Beauty mit handwerklichem Geschick."
   },
   {
     "name": "Anna",
     "rolle": "Massage & therapeutische Behandlungen",
-    "foto": "img/anna-portrait.jpg",
+    "foto": "anna-portrait.jpg",
     "text": "Gelernte MFA und Massagetherapeutin – mit viel Erfahrung und Leidenschaft für wohltuende Auszeiten."
   },
   {
     "name": "Laura",
     "rolle": "Nageldesign",
-    "foto": "img/laura-portrait.jpg",
+    "foto": "laura-portrait.jpg",
     "text": "Unser Naturtalent für schöne Nägel – von zartem Milky Nude bis feiner Marmoroptik."
   }
 ];
@@ -608,39 +608,39 @@ const TEAM = [
 // Galerie "Einblicke"
 // Die ersten 9 Bilder werden direkt gezeigt, der Rest nach Klick auf "Mehr anzeigen".
 const GALERIE = [
-  "img/behandlungsraum.jpg",
-  "img/lippen-1.jpg",
-  "img/naegel-kirschen.jpg",
-  "img/studio-licht.jpg",
-  "img/lippen-2.jpg",
-  "img/wimpern-auge.jpg",
-  "img/naegel-nude.jpg",
-  "img/lippen-3.jpg",
-  "img/studio-vase.jpg",
-  "img/lippen-4.jpg",
-  "img/produkte.jpg",
-  "img/naegel-schmetterling.jpg",
-  "img/fusspflege-2.jpg",
-  "img/fusspflege-3.jpg",
-  "img/kryolipolyse-ruecken.jpg",
-  "img/massage-bein.jpg",
-  "img/aktuell/laura-naegel.jpg",
-  "img/aktuell/studio.jpg",
-  "img/aktuell/natur.jpg",
-  "img/aktuell/gel.jpg",
-  "img/schild.jpg",
-  "img/nagelfarben.jpg",
-  "img/kupferlampen.jpg",
-  "img/schild-blumen.jpg",
-  "img/vase.jpg",
-  "img/glaslampe.jpg",
-  "img/detail.jpg",
-  "img/einblick-1.jpg",
-  "img/einblick-2.jpg",
-  "img/einblick-3.jpg",
-  "img/einblick-4.jpg",
-  "img/einblick-5.jpg",
-  "img/einblick-6.jpg",
-  "img/einblick-7.jpg",
-  "img/einblick-8.jpg"
+  "behandlungsraum.jpg",
+  "lippen-1.jpg",
+  "naegel-kirschen.jpg",
+  "studio-licht.jpg",
+  "lippen-2.jpg",
+  "wimpern-auge.jpg",
+  "naegel-nude.jpg",
+  "lippen-3.jpg",
+  "studio-vase.jpg",
+  "lippen-4.jpg",
+  "produkte.jpg",
+  "naegel-schmetterling.jpg",
+  "fusspflege-2.jpg",
+  "fusspflege-3.jpg",
+  "kryolipolyse-ruecken.jpg",
+  "massage-bein.jpg",
+  "laura-naegel.jpg",
+  "studio.jpg",
+  "natur.jpg",
+  "gel.jpg",
+  "schild.jpg",
+  "nagelfarben.jpg",
+  "kupferlampen.jpg",
+  "schild-blumen.jpg",
+  "vase.jpg",
+  "glaslampe.jpg",
+  "detail.jpg",
+  "einblick-1.jpg",
+  "einblick-2.jpg",
+  "einblick-3.jpg",
+  "einblick-4.jpg",
+  "einblick-5.jpg",
+  "einblick-6.jpg",
+  "einblick-7.jpg",
+  "einblick-8.jpg"
 ];

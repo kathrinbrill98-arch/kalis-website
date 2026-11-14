@@ -11,8 +11,8 @@ Einfache Website aus HTML-Dateien, ohne Baukasten und ohne Installation.
 | `agb.html` | Allgemeine Geschäftsbedingungen |
 | `style.css` | Farben, Schrift, Abstände |
 | `script.js` | Baut Kacheln, Preisliste, Buchungsfenster und Galerie auf (normalerweise nicht anfassen) |
-| `img/` | Alle Fotos und das Logo |
-| `fonts/` | Schriftarten (lokal, damit nichts von Google geladen wird) |
+| `*.jpg`, `logo.png` | Alle Fotos und das Logo – liegen direkt im Hauptordner (keine Unterordner) |
+| `*.woff2` | Schriftarten (lokal, damit nichts von Google geladen wird) |
 | `kathrinbrill.html`, `lisaarnold.html`, `sonjafaupel.html`, `impressum.html` | Leiten alte Adressen auf die neue Seite weiter |
 | `404.html` | Unbekannte Adressen führen zur Startseite |
 
@@ -21,7 +21,7 @@ Einfache Website aus HTML-Dateien, ohne Baukasten und ohne Installation.
 - **Preis ändern:** Bei der Leistung den Wert hinter `"preis"` ändern.
 - **Aktionspreis:** Bei einem Preis `"aktion": "299 €"` und `"aktionBis": "2026-12-31"` ergänzen. Nach dem Datum erscheint automatisch wieder der normale Preis.
 - **Aktuelles/Specials:** Eintrag in `AKTUELLES` hinzufügen. Mit `"bis"` verschwindet er nach dem Datum von selbst.
-- **Galerie:** Foto in `img/` legen und den Pfad in `GALERIE` eintragen. Die ersten 9 werden direkt gezeigt.
+- **Galerie:** Foto hochladen (in den Hauptordner) und den Dateinamen in `GALERIE` eintragen, z. B. `"lippen-5.jpg"`. Die ersten 9 werden direkt gezeigt.
 - **Team:** In `TEAM` Name, Rolle, Foto und Text ändern.
 
 Fotos vorher verkleinern (ca. 1400 Pixel lange Seite), sonst lädt die Seite langsam.
@@ -34,7 +34,7 @@ Fotos vorher verkleinern (ca. 1400 Pixel lange Seite), sonst lädt die Seite lan
 
 ## Online stellen (GitHub Pages)
 
-1. Im Repository `kalis-website`: „Add file → Upload files“, den **Inhalt** dieses Ordners hineinziehen, „Commit changes“.
+1. Im Repository `kalis-website`: „Add file → Upload files“, alle Dateien dieses Ordners hineinziehen, „Commit changes“. Es gibt keine Unterordner – alles liegt in einer Ebene.
 2. Settings → Pages → „Deploy from a branch“ → Branch `main`, Ordner `/ (root)` → Save.
 3. Nach ca. 1 Minute ist die Seite unter `https://kathrinbrill98-arch.github.io/kalis-website/` erreichbar. Alles prüfen, besonders beide Buchungskalender.
 
