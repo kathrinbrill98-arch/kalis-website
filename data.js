@@ -263,7 +263,7 @@ const LEISTUNGEN = [
         ]
       }
     ],
-    "hinweis": "Kathi und Lisa nehmen im Moment keine neuen Nageltermine an. Für neue Termine wenden Sie sich bitte an Laura – aktuell zum Modellpreis ab 40 € statt 60 €.",
+    "hinweis": "Nageldesign macht bei uns Laura – aktuell zum Modellpreis ab 40 € statt 60 €. Kathi nimmt im Moment keine neuen Nageltermine an.",
     "buchen": [
       {
         "label": "Bei Laura buchen",
@@ -581,7 +581,7 @@ const TEAM = [
   },
   {
     "name": "Lisa",
-    "rolle": "Kosmetik, Kryolipolyse, Wimpern, Brauen, Nageldesign",
+    "rolle": "Kosmetik, Kryolipolyse, Brasilianische Lymphdrainage, Wimpern",
     "foto": "lisa.jpg",
     "text": "Seit 2017 arbeite ich in der Beauty-Branche. Mein Anspruch ist das bestmögliche Ergebnis für Sie."
   },
