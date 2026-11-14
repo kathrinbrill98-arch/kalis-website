@@ -11,9 +11,9 @@ const zeile=r=>{const ak=r.aktion&&(!r.aktionBis||r.aktionBis>=heute);
 const preisHinweis=l=>(l.preisHinweis&&(!l.preisHinweisBis||l.preisHinweisBis>=heute))?'<p class="preis-hinweis">'+e(l.preisHinweis)+'</p>':'';
 const liste=g=>(g.name?"<h4>"+e(g.name)+"</h4>":"")+(g.text?"<p>"+e(g.text)+"</p>":"")+"<ul>"+g.preise.map(zeile).join("")+"</ul>";
 
-const AGB_HINWEIS='<p class="agb-hinweis">Verbindlich ist der Preis in der Online-Buchung. Bitte sagen Sie Termine mindestens 24 Stunden vorher ab. Es gelten unsere <a href="agb.html" target="_blank">AGB</a>.</p>';
-const KALENDER={kathi:"Kathi",lisa:"Lisa, Anna & Laura"};
-let zurueckZu=null; // Ansicht, zu der "Zurück" im Kalender führt
+const AGB_HINWEIS='<p class="agb-hinweis">Die Buchung öffnet Planity in einem neuen Fenster. Verbindlich ist der Preis bei Planity. Bitte sagen Sie Termine mindestens 24 Stunden vorher ab. Es gelten unsere <a href="agb.html" target="_blank">AGB</a>.</p>';
+// Buchungslink zu Planity (Konto aus PLANITY in data.js)
+const planityLink=(konto,text,klasse)=>'<a class="'+(klasse||"btn")+'" href="'+e(PLANITY[konto]||"#")+'" target="_blank" rel="noopener">'+text+'</a>';
 
 LEISTUNGEN.forEach((l,i)=>{
   const b=document.createElement("button");b.className="tile";
@@ -22,7 +22,7 @@ LEISTUNGEN.forEach((l,i)=>{
   b.onclick=()=>zeigen(i);tiles.appendChild(b);
 });
 
-function oeffnen(){dlg.classList.remove("breit");if(!dlg.open)dlg.showModal();dc.scrollTop=0}
+function oeffnen(){if(!dlg.open)dlg.showModal();dc.scrollTop=0}
 
 function zeigen(i){
   const l=LEISTUNGEN[i];
@@ -31,52 +31,25 @@ function zeigen(i){
   if(l.hinweis)h+='<p class="note">'+e(l.hinweis)+'</p>';
   if((l.buchen||[]).length){
     h+='<div class="aktion">';
-    l.buchen.forEach(b=>h+='<button class="btn" data-k="'+e(b.konto)+'">'+e(b.label)+'</button>');
+    l.buchen.forEach(b=>h+=planityLink(b.konto,e(b.label)+' ↗'));
     h+=AGB_HINWEIS+'</div>';
   } else h+='<div style="height:30px"></div>';
   dc.innerHTML=h+"</div>";
-  dc.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{zurueckZu=()=>zeigen(i);buchen(b.dataset.k)});
   oeffnen();
-}
-
-// Der Planity-Kalender wird erst nach Klick geladen (Datenschutz).
-function buchen(konto){
-  if(!dlg.open)dlg.showModal();
-  dlg.classList.add("breit");
-  dc.innerHTML='<div class="kal-kopf">'+(zurueckZu?'<button class="zurueck" id="zurueck">‹ Zurück</button>':'')+
-    '<b>Online-Termin bei '+e(KALENDER[konto]||"")+'</b></div><p class="kal-lade" id="kal-lade">Kalender wird geladen …</p>';
-  if(zurueckZu){const z=zurueckZu;document.getElementById("zurueck").onclick=()=>z()}
-  const f=document.createElement("iframe");f.title="Terminbuchung";
-  f.onload=()=>{const l=document.getElementById("kal-lade");if(l)l.remove()};
-  // Stil aus dem Planity-Einbettungscode, Farben an Kalis angepasst (#3b3430 = Logo-Braun)
-  const T="#3b3430";
-  f.srcdoc="<div id=c></div><style>body{margin:0}#planitywl{background:#efe8df}"+
-   "@media(min-width:768px){#planitywl h3{color:"+T+"!important}}"+
-   "#planitywl .planity_bookappointment-button-choose{background-color:"+T+"}"+
-   ".planity_ui_appointment_background>div:nth-child(2){padding:10px}"+
-   ".planity-gift-voucher-button-choose{background-color:"+T+"!important}"+
-   "#planitywl>div:nth-child(2)>div:nth-child(2)>div>div>div>div>h2,"+
-   "#planitywl>div:nth-child(2)>div:nth-child(2)>div>div>div>h2,"+
-   "#planitywl>div:nth-child(2)>div:nth-child(2)>div>div>div:nth-child(2)>span{color:"+T+"!important}</style>"+
-   "<script>window.planity={key:'"+PLANITY[konto]+"',primaryColor:'#fff',container:document.getElementById('c'),options:{countryCode:'DE'}}<\/script>"+
-   "<script src='https://d2skjte8udjqxw.cloudfront.net/widget/production/2/polyfills.latest.js'><\/script>"+
-   "<script src='https://d2skjte8udjqxw.cloudfront.net/widget/production/2/app.latest.js'><\/script>";
-  dc.appendChild(f);
 }
 // Alle Buttons "Termin buchen" (Menü, oben, Kontakt): erst auswählen, bei wem gebucht wird
 document.querySelectorAll(".termin").forEach(a=>a.onclick=ev=>{ev.preventDefault();menuZu();waehlen()});
 function waehlen(){
   dc.innerHTML='<div class="d"><h3>Termin buchen</h3><p class="who">Bei wem möchten Sie buchen?</p><div class="wahl">'+
-    '<button data-k="kathi"><strong>Kathi</strong><span>Permanent Make-up, Waxing</span></button>'+
-    '<button data-k="lisa"><strong>Lisa, Anna & Laura</strong><span>Kosmetik, Wimpern & Brauen, Kryolipolyse, Lymphdrainage, Massage, Nageldesign (Laura)</span></button>'+
+    planityLink("kathi",'<strong>Kathi ↗</strong><span>Permanent Make-up, Waxing</span>',"wahl-k")+
+    planityLink("lisa",'<strong>Lisa, Anna & Laura ↗</strong><span>Kosmetik, Wimpern & Brauen, Kryolipolyse, Lymphdrainage, Massage, Nageldesign (Laura)</span>',"wahl-k")+
     '</div><p class="note">Lieber persönlich? Schreiben Sie uns per <a href="https://wa.me/4917624388782?text=Hallo%2C%20ich%20m%C3%B6chte%20gern%20einen%20Termin%20bei%20Kalis%20vereinbaren." target="_blank" rel="noopener">WhatsApp</a> oder rufen Sie an: <a href="tel:+4917624388782">0176 / 24388782</a>.</p>'+
     '<p class="note">Fußpflege bei Sonja: Termine nur für bestehende Kundinnen, bitte telefonisch unter <a href="tel:+491725686718">0172 / 5686718</a>.</p>'+
     AGB_HINWEIS+'<div style="height:30px"></div></div>';
-  dc.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{zurueckZu=waehlen;buchen(b.dataset.k)});
   oeffnen();
 }
 document.getElementById("zu").onclick=()=>dlg.close();
-dlg.addEventListener("close",()=>{dc.innerHTML="";dlg.classList.remove("breit")});
+dlg.addEventListener("close",()=>{dc.innerHTML=""});
 
 // Handy-Menü (☰)
 const burger=document.getElementById("burger"),menu=document.getElementById("menu");
@@ -95,7 +68,6 @@ pl.innerHTML=LEISTUNGEN.map(l=>'<details class="pl" open><summary><div><h3>'+e(l
 pl.querySelectorAll("summary").forEach(s=>s.addEventListener("click",ev=>{if(!handy.matches)ev.preventDefault()}));
 function preislisteAnpassen(){pl.querySelectorAll(".pl").forEach(d=>d.open=!handy.matches)}
 preislisteAnpassen();handy.addEventListener("change",preislisteAnpassen);
-addEventListener("beforeprint",()=>pl.querySelectorAll(".pl").forEach(d=>d.open=true));
 
 // Aktuelles: abgelaufene Einträge ("bis" in der Vergangenheit) werden automatisch ausgeblendet
 const news=(typeof AKTUELLES!=="undefined"?AKTUELLES:[]).filter(a=>!a.bis||a.bis>=heute);
@@ -105,9 +77,8 @@ newsEl.innerHTML=news.map(a=>'<article class="card'+(a.gross?' gross':'')+'">'+
   '<div><span class="lbl">'+e(a.label||"")+'</span><h3>'+e(a.titel)+'</h3><p>'+e(a.text)+'</p>'+
   (a.preise?'<ul class="card-preise">'+a.preise.map(p=>'<li><span>'+e(p.name)+'</span><b>'+(p.statt?'<s>'+e(p.statt)+'</s> ':'')+e(p.preis)+'</b></li>').join("")+'</ul>':'')+
   (a.hinweis?'<p class="card-hinweis">'+e(a.hinweis)+'</p>':'')+
-  (a.buchen?'<button class="btn" data-k="'+e(a.buchen)+'">Termin buchen</button>':'')+
+  (a.buchen?planityLink(a.buchen,'Termin buchen ↗'):'')+
   (a.link?'<a class="btn" href="'+e(a.link)+'">'+e(a.linkText||"Mehr erfahren")+'</a>':'')+'</div></article>').join("");
-newsEl.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>{zurueckZu=null;buchen(b.dataset.k)});
 if(!news.length)document.getElementById("aktuelles").hidden=true;
 
 document.getElementById("team-g").innerHTML=TEAM.map(m=>"<div>"+

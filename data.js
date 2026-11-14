@@ -5,11 +5,11 @@
 // Wichtig: Anführungszeichen " und Kommas , nicht löschen.
 // ============================================================
 
-// Planity-Schlüssel der Buchungskalender (aus dem Planity-Einbettungscode)
-// "kathi" = Kathis Account, "lisa" = Account für Lisa, Anna und Laura
+// Planity-Seiten zur Online-Buchung (alle „Buchen“-Buttons führen direkt dorthin)
+// "kathi" = Kathis Planity-Seite, "lisa" = Planity-Seite für Lisa, Anna und Laura
 const PLANITY = {
-  "kathi": "-OLJb1-fAsFHxkelS1FV",
-  "lisa": "-OMqJTWKeEzbYfN5IgXR"
+  "kathi": "https://www.planity.com/de-DE/kalis-x-kathrin-brill-34289-zierenberg",
+  "lisa": "https://www.planity.com/de-DE/kalis-x-lisa-arnold-34289-zierenberg"
 };
 
 // Aktuelles & Specials (oben auf der Seite, Reihenfolge = Anzeige)
