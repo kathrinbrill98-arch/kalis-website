@@ -221,7 +221,7 @@ const LEISTUNGEN = [
   },
   {
     "titel": "Nageldesign",
-    "bild": "naegel-kirschen.jpg",
+    "bild": "einblick-5.jpg",
     "wer": "Laura",
     "text": "Gepflegte Nägel in Natur, Farbe oder Design. Neue Nageltermine vergibt aktuell Laura.",
     "preisHinweis": "Die hier genannten Nagelpreise gelten ab Januar 2027. Bis dahin gelten die aktuellen Preise, die Sie bei der Online-Buchung (Planity) sehen.",
