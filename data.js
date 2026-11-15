@@ -435,7 +435,7 @@ const GALERIE = [
   "fusspflege-2.jpg",
   "lippen-4.jpg",
   "kryo-ruecken.jpg",
-  "lymph-info.jpg",
+  "einblick-1.jpg",
   "einblick-2.jpg",
   "einblick-6.jpg",
   "kryo-bauch-vorne.jpg",
