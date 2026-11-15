@@ -130,5 +130,7 @@ nav .nav-btn{background:var(--tx);color:var(--bg);padding:9px 16px}nav .nav-btn:
   .pl[open]{padding-bottom:18px}
   /* Team: zwei nebeneinander */
   .team{grid-template-columns:repeat(2,1fr);gap:30px 14px}.team img,.ph{width:110px;height:110px}.team h3{font-size:26px}
+  /* letzte Person bei ungerader Anzahl mittig, damit kein leerer Platz entsteht */
+  .team>div:last-child:nth-child(odd){grid-column:1/-1;max-width:50%;margin:0 auto}
 }
 .nur-handy{display:none}@media(max-width:640px){.nur-handy{display:inline}}
