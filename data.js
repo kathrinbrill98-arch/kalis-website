@@ -15,7 +15,8 @@ const PLANITY = {
 // Aktuelles & Specials (oben auf der Seite, Reihenfolge = Anzeige)
 // "bis": letzter Tag, an dem der Eintrag angezeigt wird (Format JJJJ-MM-TT). Leer = immer anzeigen.
 // "buchen": Konto aus PLANITY (zeigt einen Buchungsbutton), leer = kein Button.
-// "link" + "linkText": optionaler zweiter Button, z. B. E-Mail ("mailto:…") oder Instagram.
+// "link" + "linkText": optionaler zweiter Button, z. B. WhatsApp ("https://wa.me/…") oder Instagram.
+// "link2" + "link2Text": optionaler kleiner Text-Link darunter, z. B. E-Mail ("mailto:…").
 // "bildGanz": true zeigt das Bild vollständig (für Grafiken mit Text), sonst wird es passend zugeschnitten.
 // "gross": true zeigt die Karte am PC als breites Banner über den anderen. Optional: "preise" und "hinweis".
 const AKTUELLES = [
@@ -49,8 +50,10 @@ const AKTUELLES = [
     "bild": "einblick-3.jpg",
     "bis": "2026-12-31",
     "buchen": "",
-    "link": "mailto:info@kaliscosmetics.de?subject=Gutschein%20Cashmere%20Brows&body=Hallo%20Kathi%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Cashmere-Brows-Gutschein%20f%C3%BCr%20299%20%E2%82%AC.%0A%0AViele%20Gr%C3%BC%C3%9Fe",
-    "linkText": "Gutschein anfragen"
+    "link": "https://wa.me/4917624388782?text=Hallo%2C%20ich%20m%C3%B6chte%20gern%20einen%20Cashmere-Brows-Gutschein%20f%C3%BCr%20299%20%E2%82%AC%20anfragen.",
+    "linkText": "Per WhatsApp anfragen",
+    "link2": "mailto:info@kaliscosmetics.de?subject=Gutschein%20Cashmere%20Brows&body=Hallo%20Kathi%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Cashmere-Brows-Gutschein%20f%C3%BCr%20299%20%E2%82%AC.%0A%0AViele%20Gr%C3%BC%C3%9Fe",
+    "link2Text": "oder per E-Mail an info@kaliscosmetics.de"
   },
   {
     "label": "Neu im Team",

@@ -85,7 +85,8 @@ newsEl.innerHTML=news.map(a=>'<article class="card'+(a.gross?' gross':'')+'">'+
   (a.preise?'<ul class="card-preise">'+a.preise.map(p=>'<li><span>'+e(p.name)+'</span><b>'+(p.statt?'<s>'+e(p.statt)+'</s> ':'')+e(p.preis)+'</b></li>').join("")+'</ul>':'')+
   (a.hinweis?'<p class="card-hinweis">'+e(a.hinweis)+'</p>':'')+
   (a.buchen?planityLink(a.buchen,'Termin buchen ↗'):'')+
-  (a.link?'<a class="btn" href="'+e(a.link)+'">'+e(a.linkText||"Mehr erfahren")+'</a>':'')+'</div></article>').join("");
+  (a.link?'<a class="btn" href="'+e(a.link)+'"'+(/^https?:/.test(a.link)?' target="_blank" rel="noopener"':'')+'>'+e(a.linkText||"Mehr erfahren")+'</a>':'')+
+  (a.link2?'<a class="card-link2" href="'+e(a.link2)+'"'+(/^https?:/.test(a.link2)?' target="_blank" rel="noopener"':'')+'>'+e(a.link2Text||"Mehr erfahren")+'</a>':'')+'</div></article>').join("");
 if(!news.length)document.getElementById("aktuelles").hidden=true;
 
 document.getElementById("team-g").innerHTML=TEAM.map(m=>"<div>"+

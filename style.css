@@ -86,6 +86,7 @@ nav{display:flex;align-items:center}
 .card .lbl{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}
 .card h3{font-size:30px;line-height:1.15;margin:4px 0 8px}.card p{font-size:16px;margin:0 0 16px}.card>div>.btn{margin-top:auto}
 .card .btn+.btn{margin-top:8px}
+.card-link2{display:inline-block;margin-top:10px;font-size:13px;color:var(--tx);word-break:break-word}
 .card-preise{margin:-4px 0 12px}.card-preise li{font-size:15px;padding:7px 0}.card .card-hinweis{font-size:14px;color:var(--mu);flex:0 0 auto}
 @media(min-width:641px){
   .card.gross{grid-column:1/-1;flex-direction:row}
