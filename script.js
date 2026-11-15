@@ -9,7 +9,12 @@ const zeile=r=>{const ak=r.aktion&&(!r.aktionBis||r.aktionBis>=heute);
   (ak?'<s>'+e(r.preis)+'</s> '+e(r.aktion):e(r.preis))+"</b></li>"};
 // Hinweis über den Preisen (z. B. „Preise gelten ab …“), verschwindet nach "preisHinweisBis"
 const preisHinweis=l=>(l.preisHinweis&&(!l.preisHinweisBis||l.preisHinweisBis>=heute))?'<p class="preis-hinweis">'+e(l.preisHinweis)+'</p>':'';
-const liste=g=>(g.name?"<h4>"+e(g.name)+"</h4>":"")+(g.text?"<p>"+e(g.text)+"</p>":"")+"<ul>"+g.preise.map(zeile).join("")+"</ul>";
+// Preise innerhalb jeder Gruppe: teuerste zuerst (bei gleichem Preis bleibt die Reihenfolge aus data.js)
+const wert=p=>{const m=String(p).match(/\d+/);return m?+m[0]:0};
+const sortiert=pr=>pr.map((r,i)=>[r,i]).sort((a,b)=>wert(b[0].preis)-wert(a[0].preis)||a[1]-b[1]).map(x=>x[0]);
+// Gruppen (z. B. „Pakete“, „Körper“, „Gesicht“) ebenfalls nach ihrem teuersten Preis sortieren
+const gruppenSortiert=gr=>(gr||[]).map((g,i)=>[g,i,Math.max(0,...g.preise.map(r=>wert(r.preis)))]).sort((a,b)=>b[2]-a[2]||a[1]-b[1]).map(x=>x[0]);
+const liste=g=>(g.name?"<h4>"+e(g.name)+"</h4>":"")+(g.text?"<p>"+e(g.text)+"</p>":"")+"<ul>"+sortiert(g.preise).map(zeile).join("")+"</ul>";
 
 const AGB_HINWEIS='<p class="agb-hinweis">Die Buchung öffnet Planity in einem neuen Fenster. Verbindlich ist der Preis bei Planity. Bitte sagen Sie Termine mindestens 24 Stunden vorher ab. Es gelten unsere <a href="agb.html" target="_blank">AGB</a>.</p>';
 // Buchungslink zu Planity (Konto aus PLANITY in data.js)
@@ -30,7 +35,7 @@ function oeffnen(){auf(dlg);dc.scrollTop=0}
 function zeigen(i){
   const l=LEISTUNGEN[i];
   let h='<div class="d"><h3>'+e(l.titel)+'</h3><p class="who">bei '+e(l.wer)+'</p><p>'+e(l.text)+'</p>'+preisHinweis(l);
-  (l.gruppen||[]).forEach(g=>h+=liste(g));
+  gruppenSortiert(l.gruppen).forEach(g=>h+=liste(g));
   if(l.hinweis)h+='<p class="note">'+e(l.hinweis)+'</p>';
   if((l.buchen||[]).length){
     h+='<div class="aktion">';
@@ -66,7 +71,7 @@ dlg.addEventListener("click",ev=>{if(ev.target===dlg)zu(dlg)});
 const handy=matchMedia("(max-width:640px)");
 const pl=document.getElementById("preisliste");
 pl.innerHTML=LEISTUNGEN.map(l=>'<details class="pl" open><summary><div><h3>'+e(l.titel)+'</h3><p class="who">bei '+e(l.wer)+'</p></div><span class="auf-zu" aria-hidden="true">+</span></summary>'+preisHinweis(l)+
-  ((l.gruppen||[]).length?l.gruppen.map(g=>liste({name:g.name,preise:g.preise})).join(""):"")+
+  gruppenSortiert(l.gruppen).map(g=>liste({name:g.name,preise:g.preise})).join("")+
   (l.hinweis?'<p class="note">'+e(l.hinweis)+'</p>':"")+'</details>').join("");
 pl.querySelectorAll("summary").forEach(s=>s.addEventListener("click",ev=>{if(!handy.matches)ev.preventDefault()}));
 function preislisteAnpassen(){pl.querySelectorAll(".pl").forEach(d=>d.open=!handy.matches)}
@@ -88,7 +93,8 @@ document.getElementById("team-g").innerHTML=TEAM.map(m=>"<div>"+
   (m.foto?'<img loading="lazy" src="'+e(m.foto)+'" alt="'+e(m.name)+'">':'<div class="ph"></div>')+
   '<h3>'+e(m.name)+'</h3><p class="rolle">'+e(m.rolle)+'</p>'+(m.text?'<p>'+e(m.text)+'</p>':'')+'</div>').join("");
 // Galerie: erst 9 Bilder, Rest per "Mehr anzeigen"; Klick auf ein Bild öffnet es groß
-const ANZAHL=9,gal=document.getElementById("gal"),mehr=document.getElementById("gal-mehr");
+// am Handy 2 Bilder pro Reihe -> 10 zeigen, am PC 3 pro Reihe -> 9 zeigen (keine leeren Plätze)
+const ANZAHL=handy.matches?10:9,gal=document.getElementById("gal"),mehr=document.getElementById("gal-mehr");
 gal.innerHTML=GALERIE.map((u,i)=>'<button class="gi'+(i>=ANZAHL?' zu':'')+'" data-i="'+i+'" aria-label="Bild '+(i+1)+' vergrößern"><img loading="lazy" src="'+e(u)+'" alt="Einblick ins Kosmetikstudio Kalis Cosmetics in Zierenberg bei Kassel"></button>').join("");
 if(GALERIE.length>ANZAHL){mehr.hidden=false;mehr.onclick=()=>{gal.querySelectorAll(".zu").forEach(b=>b.classList.remove("zu"));mehr.hidden=true}}
 const lbImg=document.getElementById("lb-img");let lbI=0;
