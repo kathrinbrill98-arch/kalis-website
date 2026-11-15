@@ -9,11 +9,10 @@ const zeile=r=>{const ak=r.aktion&&(!r.aktionBis||r.aktionBis>=heute);
   (ak?'<s>'+e(r.preis)+'</s> '+e(r.aktion):e(r.preis))+"</b></li>"};
 // Hinweis über den Preisen (z. B. „Preise gelten ab …“), verschwindet nach "preisHinweisBis"
 const preisHinweis=l=>(l.preisHinweis&&(!l.preisHinweisBis||l.preisHinweisBis>=heute))?'<p class="preis-hinweis">'+e(l.preisHinweis)+'</p>':'';
-// Preise innerhalb jeder Gruppe: teuerste zuerst (bei gleichem Preis bleibt die Reihenfolge aus data.js)
-const wert=p=>{const m=String(p).match(/\d+/);return m?+m[0]:0};
-const sortiert=pr=>pr.map((r,i)=>[r,i]).sort((a,b)=>wert(b[0].preis)-wert(a[0].preis)||a[1]-b[1]).map(x=>x[0]);
-// Gruppen (z. B. „Pakete“, „Körper“, „Gesicht“) ebenfalls nach ihrem teuersten Preis sortieren
-const gruppenSortiert=gr=>(gr||[]).map((g,i)=>[g,i,Math.max(0,...g.preise.map(r=>wert(r.preis)))]).sort((a,b)=>b[2]-a[2]||a[1]-b[1]).map(x=>x[0]);
+// Reihenfolge der Preise und Gruppen = Reihenfolge in data.js (dort bewusst festgelegt:
+// günstigste zuerst, Waxing von oben nach unten, Nachbehandlungen unter der passenden Leistung)
+const sortiert=pr=>pr;
+const gruppenSortiert=gr=>gr||[];
 const liste=g=>(g.name?"<h4>"+e(g.name)+"</h4>":"")+(g.text?"<p>"+e(g.text)+"</p>":"")+"<ul>"+sortiert(g.preise).map(zeile).join("")+"</ul>";
 
 const AGB_HINWEIS='<p class="agb-hinweis">Die Buchung öffnet Planity in einem neuen Fenster. Verbindlich ist der Preis bei Planity. Bitte sagen Sie Termine mindestens 24 Stunden vorher ab. Es gelten unsere <a href="agb.html" target="_blank">AGB</a>.</p>';
@@ -50,7 +49,7 @@ document.querySelectorAll(".termin").forEach(a=>a.onclick=ev=>{ev.preventDefault
 function waehlen(){
   dc.innerHTML='<div class="d"><h3>Termin buchen</h3><p class="who">Bei wem möchten Sie buchen?</p><div class="wahl">'+
     planityLink("kathi",'<strong>Kathi ↗</strong><span>Permanent Make-up, Waxing</span>',"wahl-k")+
-    planityLink("lisa",'<strong>Lisa, Anna & Laura ↗</strong><span>Kosmetik, Wimpern & Brauen, Kryolipolyse, Lymphdrainage, Massage, Nageldesign (Laura)</span>',"wahl-k")+
+    planityLink("lisa",'<strong>Lisa, Anna & Laura ↗</strong><span>Brasilianische Lymphdrainage, Kryolipolyse, Kosmetik, Wimpern & Brauen, Massage, Nageldesign (Laura)</span>',"wahl-k")+
     '</div><p class="note">Lieber persönlich? Schreiben Sie uns per <a href="https://wa.me/4917624388782?text=Hallo%2C%20ich%20m%C3%B6chte%20gern%20einen%20Termin%20bei%20Kalis%20vereinbaren." target="_blank" rel="noopener">WhatsApp</a> oder rufen Sie an: <a href="tel:+4917624388782">0176 / 24388782</a>.</p>'+
     '<p class="note">Fußpflege bei Sonja: Termine nur für bestehende Kundinnen, bitte telefonisch unter <a href="tel:+491725686718">0172 / 5686718</a>.</p>'+
     AGB_HINWEIS+'<div style="height:30px"></div></div>';

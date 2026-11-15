@@ -89,40 +89,56 @@ const LEISTUNGEN = [
       {
         "name": "",
         "preise": [
-          {
-            "name": "Cashmere Brows",
-            "preis": "399 €",
-            "aktion": "299 €",
-            "aktionBis": "2026-12-31"
-          },
-          {
-            "name": "Velvet Lips",
-            "preis": "399 €"
-          },
-          {
-            "name": "Powder Brows",
-            "preis": "379 €"
-          },
-          {
-            "name": "Wimpernkranzverdichtung",
-            "preis": "129 €"
-          },
-          {
-            "name": "Nachbehandlung Wimpernkranzverdichtung",
-            "preis": "59 €"
-          },
-          {
-            "name": "Nachbehandlung Lippen & Augenbrauen",
-            "preis": "129 €"
-          }
+          { "name": "Wimpernkranzverdichtung", "preis": "129 €" },
+          { "name": "Nachbehandlung Wimpernkranzverdichtung", "preis": "59 €" },
+          { "name": "Powder Brows", "preis": "379 €" },
+          { "name": "Cashmere Brows", "preis": "399 €", "aktion": "299 €", "aktionBis": "2026-12-31" },
+          { "name": "Velvet Lips", "preis": "399 €" },
+          { "name": "Nachbehandlung Lippen & Augenbrauen", "preis": "129 €" }
         ]
       }
     ],
     "buchen": [
+      { "label": "Bei Kathi buchen", "konto": "kathi" }
+    ]
+  },
+  {
+    "titel": "Brasilianische Lymphdrainage",
+    "bild": "lymphdrainage.jpg",
+    "wer": "Lisa",
+    "text": "Die brasilianische Lymphdrainage ist eine intensive, körperformende Massagetechnik, die den Lymphfluss anregt, den Abtransport überschüssiger Gewebsflüssigkeit unterstützt und Wassereinlagerungen reduzieren kann. Durch gezielte, dynamische Massagegriffe und spezielle Techniken werden zusätzlich fasziale Spannungen gelöst, die Durchblutung gefördert und die Körperkonturen optisch definiert. Das Ergebnis: Ein leichteres Körpergefühl, weniger Schwellungen und eine sichtbar glattere, definiertere Silhouette – häufig schon nach der ersten Behandlung.",
+    "gruppen": [
       {
-        "label": "Bei Kathi buchen",
-        "konto": "kathi"
+        "name": "",
+        "preise": [
+          { "name": "Brasilianische Lymphdrainage klassisch", "preis": "130 €" },
+          { "name": "Brasilianische Lymphdrainage mit Gesicht", "preis": "150 €" }
+        ]
       }
+    ],
+    "buchen": [
+      { "label": "Bei Lisa buchen", "konto": "lisa" }
+    ]
+  },
+  {
+    "titel": "Kryolipolyse",
+    "bild": "kryo-bauch-seite.jpg",
+    "wer": "Lisa",
+    "text": "Kryolipolyse ist eine nicht invasive Anwendung zur Körperformung: Fettdepots werden gezielt reduziert und die Körperkonturen definiert.",
+    "gruppen": [
+      {
+        "name": "",
+        "preise": [
+          { "name": "Doppelkinn", "preis": "330 €" },
+          { "name": "Bauch", "preis": "390 €", "aktion": "329 €", "aktionBis": "2026-11-30" },
+          { "name": "Jawline", "preis": "390 €" },
+          { "name": "Arme, Rücken, Hüfte, Knie oder Oberschenkel", "preis": "460 €", "aktion": "389 €", "aktionBis": "2026-11-30" }
+        ]
+      }
+    ],
+    "hinweis": "Bei Kombination von Bauch mit Doppelkinn, Jawline, Arme, Oberschenkel oder Knie: 10 % Rabatt",
+    "buchen": [
+      { "label": "Bei Lisa buchen", "konto": "lisa" }
     ]
   },
   {
@@ -134,89 +150,136 @@ const LEISTUNGEN = [
       {
         "name": "Gesicht",
         "preise": [
-          {
-            "name": "Augenbrauen",
-            "preis": "13 €"
-          },
-          {
-            "name": "Oberlippe",
-            "preis": "13 €"
-          },
-          {
-            "name": "Nase",
-            "preis": "9 €"
-          }
+          { "name": "Augenbrauen", "preis": "13 €" },
+          { "name": "Nase", "preis": "9 €" },
+          { "name": "Oberlippe", "preis": "13 €" }
         ]
       },
       {
         "name": "Körper",
         "preise": [
-          {
-            "name": "Achseln",
-            "preis": "25 €"
-          },
-          {
-            "name": "Bikinizone",
-            "preis": "25 €"
-          },
-          {
-            "name": "Brazilian",
-            "preis": "49 €"
-          },
-          {
-            "name": "Brazilian inkl. Pofalte",
-            "preis": "59 €"
-          },
-          {
-            "name": "Unterschenkel",
-            "preis": "30 €"
-          },
-          {
-            "name": "Beine komplett",
-            "preis": "59 €"
-          }
+          { "name": "Achseln", "preis": "25 €" },
+          { "name": "Bikinizone", "preis": "25 €" },
+          { "name": "Brazilian", "preis": "49 €" },
+          { "name": "Brazilian inkl. Pofalte", "preis": "59 €" },
+          { "name": "Beine komplett", "preis": "59 €" },
+          { "name": "Unterschenkel", "preis": "30 €" }
         ]
       },
       {
         "name": "Für Männer",
         "preise": [
-          {
-            "name": "Rücken",
-            "preis": "49 €"
-          },
-          {
-            "name": "Brust",
-            "preis": "39 €"
-          },
-          {
-            "name": "Brust & Bauch",
-            "preis": "59 €"
-          }
+          { "name": "Brust", "preis": "39 €" },
+          { "name": "Rücken", "preis": "49 €" },
+          { "name": "Brust & Bauch", "preis": "59 €" }
         ]
       },
       {
         "name": "Pakete",
         "preise": [
-          {
-            "name": "Achseln & Unterschenkel",
-            "preis": "49 €"
-          },
-          {
-            "name": "Achseln, Unterschenkel & Bikinizone",
-            "preis": "69 €"
-          },
-          {
-            "name": "Achseln, Brazilian inkl. Pofalte & Unterschenkel",
-            "preis": "99 €"
-          }
+          { "name": "Achseln & Unterschenkel", "preis": "49 €" },
+          { "name": "Achseln, Unterschenkel & Bikinizone", "preis": "69 €" },
+          { "name": "Achseln, Brazilian inkl. Pofalte & Unterschenkel", "preis": "99 €" }
         ]
       }
     ],
     "buchen": [
+      { "label": "Bei Kathi buchen", "konto": "kathi" }
+    ]
+  },
+  {
+    "titel": "Kosmetik & Gesicht",
+    "bild": "einblick-2.jpg",
+    "wer": "Lisa",
+    "text": "Die klassische Gesichtsbehandlung mit gründlicher Reinigung, Peeling, Ausreinigung, Maske und Pflege, individuell erweiterbar mit Zusatzpaketen.",
+    "gruppen": [
       {
-        "label": "Bei Kathi buchen",
-        "konto": "kathi"
+        "name": "Gesichtsbehandlung",
+        "preise": [
+          { "name": "Klassische Gesichtsbehandlung", "preis": "79 €" },
+          { "name": "+ Wellness Paket (Entspannung & Regeneration)", "preis": "+39 €" },
+          { "name": "+ Glow Paket (Leuchtkraft & Feuchtigkeit)", "preis": "+45 €" },
+          { "name": "+ Anti-Age Paket (Straffung & Regeneration)", "preis": "+49 €" },
+          { "name": "+ Clear Skin Paket (Klärung & Balance)", "preis": "+49 €" }
+        ]
+      },
+      {
+        "name": "Apparative Kosmetik",
+        "preise": [
+          { "name": "BB Glow", "preis": "99 €" },
+          { "name": "Microneedling", "preis": "130 €" },
+          { "name": "Aquafacial", "preis": "130 €" },
+          { "name": "Kombibehandlung", "preis": "180 €" }
+        ]
+      },
+      {
+        "name": "Zubuchbar",
+        "preise": [
+          { "name": "Dekolletémassage", "preis": "10 €" },
+          { "name": "Gesichtsmassage", "preis": "15 €" },
+          { "name": "Kombimassage", "preis": "20 €" }
+        ]
       }
+    ],
+    "buchen": [
+      { "label": "Bei Lisa buchen", "konto": "lisa" }
+    ]
+  },
+  {
+    "titel": "Wimpern & Brauen",
+    "bild": "wimpern-lisa.jpg",
+    "wer": "Lisa",
+    "text": "Lifting, Färben und Wimpernverlängerung für einen offenen, gepflegten Blick.",
+    "gruppen": [
+      {
+        "name": "Brauen & Wimpern",
+        "preise": [
+          { "name": "Wimpern & Brauen Gesamtpaket (Färben & Zupfen)", "preis": "35 €" },
+          { "name": "Browlifting inkl. Färben", "preis": "60 €" },
+          { "name": "Lashlifting inkl. Färben", "preis": "65 €" },
+          { "name": "Koreanisches Browlifting", "preis": "65 €" },
+          { "name": "Koreanisches Lashlifting", "preis": "75 €" },
+          { "name": "Kombipaket Lifting", "preis": "105 €" },
+          { "name": "Kombi Koreanisches Lash- und Browlifting", "preis": "120 €" }
+        ]
+      },
+      {
+        "name": "Wimpernverlängerung",
+        "preise": [
+          { "name": "Neuanlage 1:1", "preis": "115 €" },
+          { "name": "Refill 1:1 (bis 3 Wochen)", "preis": "55 €" },
+          { "name": "Neuanlage Hybrid", "preis": "125 €" },
+          { "name": "Refill Hybrid (bis 3 Wochen)", "preis": "60 €" },
+          { "name": "Neuanlage Volumen", "preis": "135 €" },
+          { "name": "Refill Volumen (bis 3 Wochen)", "preis": "65 €" }
+        ]
+      }
+    ],
+    "buchen": [
+      { "label": "Bei Lisa buchen", "konto": "lisa" }
+    ]
+  },
+  {
+    "titel": "Massage & Therapie",
+    "bild": "massage-ruecken.jpg",
+    "wer": "Anna",
+    "text": "Massagen und therapeutische Behandlungen von Anna, MFA und Massagetherapeutin. Ob wohltuende Entspannung, gezielte Behandlung von Verspannungen oder einfach eine kleine Auszeit vom Alltag.",
+    "gruppen": [
+      {
+        "name": "",
+        "preise": [
+          { "name": "Kinesio Taping (ab 15 Min.)", "preis": "ab 15 €" },
+          { "name": "Rückenmassage (30 Min.)", "preis": "45 €" },
+          { "name": "Sportmassage (30 Min.)", "preis": "49 €" },
+          { "name": "Rückenmassage (45 Min.)", "preis": "60 €" },
+          { "name": "Ganzkörpermassage (60 Min.)", "preis": "79 €" },
+          { "name": "Schwangerschaftsmassage (60 Min.)", "preis": "85 €" },
+          { "name": "Faszienbehandlung (60 Min.)", "preis": "110 €" }
+        ]
+      }
+    ],
+    "buchen": [
+      { "label": "Bei Anna buchen", "konto": "lisa" }
     ]
   },
   {
@@ -228,20 +291,22 @@ const LEISTUNGEN = [
     "preisHinweisBis": "2026-12-31",
     "gruppen": [
       {
+        "name": "Neuset ohne Verlängerung",
+        "preise": [
+          { "name": "Natur", "preis": "60 €" },
+          { "name": "Babyboomer", "preis": "60 €" },
+          { "name": "Farbe", "preis": "65 €" },
+          { "name": "French", "preis": "65 €" },
+          { "name": "Design", "preis": "ab 65 €" }
+        ]
+      },
+      {
         "name": "Neuset mit Verlängerung",
         "preise": [
           { "name": "Natur", "preis": "70 €" },
           { "name": "Farbe", "preis": "75 €" },
           { "name": "Design", "preis": "ab 80 €" },
           { "name": "Überlänge", "preis": "ab 75 €" }
-        ]
-      },
-      {
-        "name": "Neuset ohne Verlängerung",
-        "preise": [
-          { "name": "Natur", "preis": "60 €" },
-          { "name": "Farbe", "preis": "65 €" },
-          { "name": "Design", "preis": "ab 65 €" }
         ]
       },
       {
@@ -254,228 +319,16 @@ const LEISTUNGEN = [
         ]
       },
       {
-        "name": "Weitere",
+        "name": "Maniküre",
         "preise": [
-          { "name": "Babyboomer", "preis": "60 €" },
-          { "name": "French", "preis": "65 €" },
-          { "name": "Ablösen inkl. Maniküre", "preis": "30 €" },
-          { "name": "Maniküre ohne Lack", "preis": "30 €" }
+          { "name": "Maniküre ohne Lack", "preis": "30 €" },
+          { "name": "Ablösen inkl. Maniküre", "preis": "30 €" }
         ]
       }
     ],
     "hinweis": "Nageldesign macht bei uns Laura – aktuell zum Modellpreis ab 40 € statt 60 €. Kathi nimmt im Moment keine neuen Nageltermine an.",
     "buchen": [
-      {
-        "label": "Bei Laura buchen",
-        "konto": "lisa"
-      }
-    ]
-  },
-  {
-    "titel": "Wimpern & Brauen",
-    "bild": "wimpern-lisa.jpg",
-    "wer": "Lisa",
-    "text": "Lifting, Färben und Wimpernverlängerung für einen offenen, gepflegten Blick.",
-    "gruppen": [
-      {
-        "name": "Brauen & Wimpern",
-        "preise": [
-          {
-            "name": "Lashlifting inkl. Färben",
-            "preis": "65 €"
-          },
-          {
-            "name": "Browlifting inkl. Färben",
-            "preis": "60 €"
-          },
-          {
-            "name": "Kombipaket Lifting",
-            "preis": "105 €"
-          },
-          {
-            "name": "Koreanisches Lashlifting",
-            "preis": "75 €"
-          },
-          {
-            "name": "Koreanisches Browlifting",
-            "preis": "65 €"
-          },
-          {
-            "name": "Kombi Koreanisches Lash- und Browlifting",
-            "preis": "120 €"
-          },
-          {
-            "name": "Wimpern & Brauen Gesamtpaket (Färben & Zupfen)",
-            "preis": "35 €"
-          }
-        ]
-      },
-      {
-        "name": "Wimpernverlängerung",
-        "preise": [
-          {
-            "name": "Neuanlage 1:1",
-            "preis": "115 €"
-          },
-          {
-            "name": "Refill 1:1 (bis 3 Wochen)",
-            "preis": "55 €"
-          },
-          {
-            "name": "Neuanlage Hybrid",
-            "preis": "125 €"
-          },
-          {
-            "name": "Refill Hybrid (bis 3 Wochen)",
-            "preis": "60 €"
-          },
-          {
-            "name": "Neuanlage Volumen",
-            "preis": "135 €"
-          },
-          {
-            "name": "Refill Volumen (bis 3 Wochen)",
-            "preis": "65 €"
-          }
-        ]
-      }
-    ],
-    "buchen": [
-      {
-        "label": "Bei Lisa buchen",
-        "konto": "lisa"
-      }
-    ]
-  },
-  {
-    "titel": "Kosmetik & Gesicht",
-    "bild": "einblick-2.jpg",
-    "wer": "Lisa",
-    "text": "Die klassische Gesichtsbehandlung mit gründlicher Reinigung, Peeling, Ausreinigung, Maske und Pflege, individuell erweiterbar mit Zusatzpaketen.",
-    "gruppen": [
-      {
-        "name": "Gesichtsbehandlung",
-        "preise": [
-          {
-            "name": "Klassische Gesichtsbehandlung",
-            "preis": "79 €"
-          },
-          {
-            "name": "+ Anti-Age Paket (Straffung & Regeneration)",
-            "preis": "+49 €"
-          },
-          {
-            "name": "+ Glow Paket (Leuchtkraft & Feuchtigkeit)",
-            "preis": "+45 €"
-          },
-          {
-            "name": "+ Clear Skin Paket (Klärung & Balance)",
-            "preis": "+49 €"
-          },
-          {
-            "name": "+ Wellness Paket (Entspannung & Regeneration)",
-            "preis": "+39 €"
-          }
-        ]
-      },
-      {
-        "name": "Apparative Kosmetik",
-        "preise": [
-          {
-            "name": "Microneedling",
-            "preis": "130 €"
-          },
-          {
-            "name": "BB Glow",
-            "preis": "99 €"
-          },
-          {
-            "name": "Kombibehandlung",
-            "preis": "180 €"
-          },
-          {
-            "name": "Aquafacial",
-            "preis": "130 €"
-          }
-        ]
-      },
-      {
-        "name": "Zubuchbar",
-        "preise": [
-          {
-            "name": "Gesichtsmassage",
-            "preis": "15 €"
-          },
-          {
-            "name": "Dekolletémassage",
-            "preis": "10 €"
-          },
-          {
-            "name": "Kombimassage",
-            "preis": "20 €"
-          }
-        ]
-      }
-    ],
-    "buchen": [
-      {
-        "label": "Bei Lisa buchen",
-        "konto": "lisa"
-      }
-    ]
-  },
-  {
-    "titel": "Kryolipolyse & Lymphdrainage",
-    "bild": "kryo-bauch-seite.jpg",
-    "wer": "Lisa",
-    "text": "Kryolipolyse: eine nicht invasive Anwendung zur Körperformung. Dazu Brasilianische Lymphdrainage.",
-    "gruppen": [
-      {
-        "name": "Kryolipolyse",
-        "preise": [
-          {
-            "name": "Doppelkinn",
-            "preis": "330 €"
-          },
-          {
-            "name": "Bauch",
-            "preis": "390 €",
-            "aktion": "329 €",
-            "aktionBis": "2026-11-30"
-          },
-          {
-            "name": "Jawline",
-            "preis": "390 €"
-          },
-          {
-            "name": "Arme, Rücken, Hüfte, Knie oder Oberschenkel",
-            "preis": "460 €",
-            "aktion": "389 €",
-            "aktionBis": "2026-11-30"
-          }
-        ]
-      },
-      {
-        "name": "Brasilianische Lymphdrainage",
-        "preise": [
-          {
-            "name": "Klassisch",
-            "preis": "130 €"
-          },
-          {
-            "name": "Mit Gesicht",
-            "preis": "150 €"
-          }
-        ],
-        "text": "Die brasilianische Lymphdrainage ist eine intensive, körperformende Massagetechnik, die den Lymphfluss anregt, den Abtransport überschüssiger Gewebsflüssigkeit unterstützt und Wassereinlagerungen reduzieren kann. Durch gezielte, dynamische Massagegriffe und spezielle Techniken werden zusätzlich fasziale Spannungen gelöst, die Durchblutung gefördert und die Körperkonturen optisch definiert. Das Ergebnis: Ein leichteres Körpergefühl, weniger Schwellungen und eine sichtbar glattere, definiertere Silhouette – häufig schon nach der ersten Behandlung."
-      }
-    ],
-    "hinweis": "Bei Kombination von Bauch mit Doppelkinn, Jawline, Arme, Oberschenkel oder Knie: 10 % Rabatt",
-    "buchen": [
-      {
-        "label": "Bei Lisa buchen",
-        "konto": "lisa"
-      }
+      { "label": "Bei Laura buchen", "konto": "lisa" }
     ]
   },
   {
@@ -487,87 +340,31 @@ const LEISTUNGEN = [
       {
         "name": "Fußpflege",
         "preise": [
-          {
-            "name": "Klassische Fußpflege",
-            "preis": "39 €"
-          },
-          {
-            "name": "mit Lack",
-            "preis": "50 €"
-          },
-          {
-            "name": "mit Schellack",
-            "preis": "55 €"
-          },
-          {
-            "name": "French/Design",
-            "preis": "58 €"
-          },
-          {
-            "name": "Problemfuß Fußpflege",
-            "preis": "45 €"
-          }
+          { "name": "Klassische Fußpflege", "preis": "39 €" },
+          { "name": "Problemfuß Fußpflege", "preis": "45 €" },
+          { "name": "mit Lack", "preis": "50 €" },
+          { "name": "mit Schellack", "preis": "55 €" },
+          { "name": "French/Design", "preis": "58 €" }
         ]
       },
       {
         "name": "Dazu buchbar",
         "preise": [
-          {
-            "name": "Kleine Fußmassage „Time out“",
-            "preis": "15 €"
-          },
-          {
-            "name": "Vitalisierendes Fußbad",
-            "preis": "6 €"
-          },
-          {
-            "name": "Entfernen von Fremdarbeit Lack",
-            "preis": "8 €"
-          },
-          {
-            "name": "Entfernen von Fremdarbeit Schellack",
-            "preis": "10 €"
-          }
+          { "name": "Vitalisierendes Fußbad", "preis": "6 €" },
+          { "name": "Entfernen von Fremdarbeit Lack", "preis": "8 €" },
+          { "name": "Entfernen von Fremdarbeit Schellack", "preis": "10 €" },
+          { "name": "Kleine Fußmassage „Time out“", "preis": "15 €" }
         ]
       },
       {
         "name": "Wellness Fußpflege Paket",
         "preise": [
-          {
-            "name": "Fußbad, Peeling, Fußpflege, Nägel kürzen, Hornhaut entfernen, Fußmassage",
-            "preis": "65 €"
-          }
+          { "name": "Fußbad, Peeling, Fußpflege, Nägel kürzen, Hornhaut entfernen, Fußmassage", "preis": "65 €" }
         ]
       }
     ],
     "hinweis": "Aktuell nehmen wir keine neuen Fußpflege-Termine an. Terminvereinbarung für bestehende Kundinnen: 0172/5686718",
     "buchen": []
-  },
-  {
-    "titel": "Massage & Therapie",
-    "bild": "massage-ruecken.jpg",
-    "wer": "Anna",
-    "text": "Massagen und therapeutische Behandlungen von Anna, MFA und Massagetherapeutin. Ob wohltuende Entspannung, gezielte Behandlung von Verspannungen oder einfach eine kleine Auszeit vom Alltag.",
-    "gruppen": [
-      {
-        "name": "",
-        "preise": [
-          { "name": "Rückenmassage (30 Min.)", "preis": "45 €" },
-          { "name": "Rückenmassage (45 Min.)", "preis": "60 €" },
-          { "name": "Ganzkörpermassage (60 Min.)", "preis": "79 €" },
-          { "name": "Sportmassage (30 Min.)", "preis": "49 €" },
-          { "name": "Kinesio Taping (ab 15 Min.)", "preis": "ab 15 €" },
-          { "name": "Schwangerschaftsmassage (60 Min.)", "preis": "85 €" },
-          { "name": "Faszienbehandlung (60 Min.)", "preis": "110 €" }
-        ]
-      }
-    ],
-    "buchen": [
-      {
-        "label": "Bei Anna buchen",
-        "konto": "lisa"
-      }
-    ]
   }
 ];
 
