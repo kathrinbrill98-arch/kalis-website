@@ -89,12 +89,12 @@ const LEISTUNGEN = [
       {
         "name": "",
         "preise": [
-          { "name": "Wimpernkranzverdichtung", "preis": "129 €" },
-          { "name": "Nachbehandlung Wimpernkranzverdichtung", "preis": "59 €" },
-          { "name": "Powder Brows", "preis": "379 €" },
           { "name": "Cashmere Brows", "preis": "399 €", "aktion": "299 €", "aktionBis": "2026-12-31" },
+          { "name": "Powder Brows", "preis": "379 €" },
           { "name": "Velvet Lips", "preis": "399 €" },
-          { "name": "Nachbehandlung Lippen & Augenbrauen", "preis": "129 €" }
+          { "name": "Nachbehandlung Lippen & Augenbrauen", "preis": "129 €" },
+          { "name": "Wimpernkranzverdichtung", "preis": "129 €" },
+          { "name": "Nachbehandlung Wimpernkranzverdichtung", "preis": "59 €" }
         ]
       }
     ],
@@ -338,6 +338,12 @@ const LEISTUNGEN = [
     "text": "Als Fußpflegerin habe ich meine Berufung gefunden. Ich helfe Menschen, sich wohlzufühlen und ihre Gesundheit zu verbessern.",
     "gruppen": [
       {
+        "name": "Wellness Fußpflege Paket",
+        "preise": [
+          { "name": "Fußbad, Peeling, Fußpflege, Nägel kürzen, Hornhaut entfernen, Fußmassage", "preis": "65 €" }
+        ]
+      },
+      {
         "name": "Fußpflege",
         "preise": [
           { "name": "Klassische Fußpflege", "preis": "39 €" },
@@ -354,12 +360,6 @@ const LEISTUNGEN = [
           { "name": "Entfernen von Fremdarbeit Lack", "preis": "8 €" },
           { "name": "Entfernen von Fremdarbeit Schellack", "preis": "10 €" },
           { "name": "Kleine Fußmassage „Time out“", "preis": "15 €" }
-        ]
-      },
-      {
-        "name": "Wellness Fußpflege Paket",
-        "preise": [
-          { "name": "Fußbad, Peeling, Fußpflege, Nägel kürzen, Hornhaut entfernen, Fußmassage", "preis": "65 €" }
         ]
       }
     ],
@@ -411,32 +411,38 @@ const GALERIE = [
   "wimpern-lisa.jpg",
   "kryo-bauch-seite.jpg",
   "einblick-3.jpg",
-  "massage-bein.jpg",
-  "naegel-nude.jpg",
+  "lymph-1.jpg",
+  "naegel-schneeflocken.jpg",
   "einblick-7.jpg",
   "schild.jpg",
   "waxing.jpg",
   "studio-licht.jpg",
   "lippen-2.jpg",
+  "lymph-2.jpg",
   "kryo-doppelkinn.jpg",
-  "produkte.jpg",
-  "wimpern-auge.jpg",
+  "wimpern-korea.jpg",
   "studio-vase.jpg",
+  "produkte.jpg",
   "kryo-arm.jpg",
+  "lymph-3.jpg",
   "lippen-3.jpg",
   "einblick-4.jpg",
+  "massage-bein.jpg",
   "kryo-oberschenkel.jpg",
-  "fusspflege-2.jpg",
+  "wimpern-auge.jpg",
   "schild-blumen.jpg",
+  "lymph-4.jpg",
+  "fusspflege-2.jpg",
   "lippen-4.jpg",
   "kryo-ruecken.jpg",
+  "lymph-info.jpg",
   "einblick-2.jpg",
   "einblick-6.jpg",
   "kryo-bauch-vorne.jpg",
+  "lymph-5.jpg",
   "fusspflege-3.jpg",
-  "einblick-1.jpg",
   "naegel-kirschen.jpg",
-  "einblick-8.jpg",
+  "naegel-nude.jpg",
   "naegel-schmetterling.jpg",
   "vase.jpg",
   "einblick-5.jpg",
