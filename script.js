@@ -50,7 +50,7 @@ function waehlen(){
   dc.innerHTML='<div class="d"><h3>Termin buchen</h3><p class="who">Bei wem möchten Sie buchen?</p><div class="wahl">'+
     planityLink("kathi",'<strong>Kathi ↗</strong><span>Permanent Make-up, Waxing</span>',"wahl-k")+
     planityLink("lisa",'<strong>Lisa, Anna & Laura ↗</strong><span>Brasilianische Lymphdrainage, Kryolipolyse, Kosmetik, Wimpern & Brauen, Massage, Nageldesign (Laura)</span>',"wahl-k")+
-    '</div><p class="note">Lieber persönlich? Schreiben Sie uns per <a href="https://wa.me/4917624388782?text=Hallo%2C%20ich%20m%C3%B6chte%20gern%20einen%20Termin%20bei%20Kalis%20vereinbaren." target="_blank" rel="noopener">WhatsApp</a> oder rufen Sie an: <a href="tel:+4917624388782">0176 / 24388782</a>.</p>'+
+    '</div><p class="note">Lieber persönlich? Schreiben Sie uns per <a href="https://wa.me/4915630010489?text=Hallo%2C%20ich%20m%C3%B6chte%20gern%20einen%20Termin%20bei%20Kalis%20vereinbaren." target="_blank" rel="noopener">WhatsApp</a> oder rufen Sie an: <a href="tel:+4915630010489">0156 / 30010489</a>.</p>'+
     '<p class="note">Fußpflege bei Sonja: Termine nur für bestehende Kundinnen, bitte telefonisch unter <a href="tel:+491725686718">0172 / 5686718</a>.</p>'+
     AGB_HINWEIS+'<div style="height:30px"></div></div>';
   oeffnen();
@@ -92,14 +92,25 @@ if(!news.length)document.getElementById("aktuelles").hidden=true;
 document.getElementById("team-g").innerHTML=TEAM.map(m=>"<div>"+
   (m.foto?'<img loading="lazy" src="'+e(m.foto)+'" alt="'+e(m.name)+'">':'<div class="ph"></div>')+
   '<h3>'+e(m.name)+'</h3><p class="rolle">'+e(m.rolle)+'</p>'+(m.text?'<p>'+e(m.text)+'</p>':'')+'</div>').join("");
-// Galerie: erst 9 Bilder, Rest per "Mehr anzeigen"; Klick auf ein Bild öffnet es groß
-// am Handy 2 Bilder pro Reihe -> 10 zeigen, am PC 3 pro Reihe -> 9 zeigen (keine leeren Plätze)
-const ANZAHL=handy.matches?10:9,gal=document.getElementById("gal"),mehr=document.getElementById("gal-mehr");
-gal.innerHTML=GALERIE.map((u,i)=>'<button class="gi'+(i>=ANZAHL?' zu':'')+'" data-i="'+i+'" aria-label="Bild '+(i+1)+' vergrößern"><img loading="lazy" src="'+e(u)+'" alt="Einblick ins Kosmetikstudio Kalis Cosmetics in Zierenberg bei Kassel"></button>').join("");
-if(GALERIE.length>ANZAHL){mehr.hidden=false;mehr.onclick=()=>{gal.querySelectorAll(".zu").forEach(b=>b.classList.remove("zu"));mehr.hidden=true}}
-const lbImg=document.getElementById("lb-img");let lbI=0;
-function zeigeBild(i){lbI=(i+GALERIE.length)%GALERIE.length;lbImg.src=GALERIE[lbI];lbImg.alt="Einblick "+(lbI+1)+" von "+GALERIE.length}
-gal.querySelectorAll(".gi").forEach(b=>b.onclick=()=>{zeigeBild(+b.dataset.i);auf(lb)});
+// Galerie: "Unser Studio" (erst 6 Bilder, Rest per "Mehr anzeigen") und
+// "Ergebnisse unserer Arbeit" mit einem Reiter je Leistung. Klick auf ein Bild öffnet es groß.
+const lbImg=document.getElementById("lb-img");let lbListe=[],lbI=0;
+function zeigeBild(i){lbI=(i+lbListe.length)%lbListe.length;lbImg.src=lbListe[lbI];lbImg.alt="Bild "+(lbI+1)+" von "+lbListe.length}
+function galerie(el,liste,alt,anzahl){
+  el.innerHTML=liste.map((u,i)=>'<button class="gi'+(anzahl&&i>=anzahl?' zu':'')+'" data-i="'+i+'" aria-label="Bild '+(i+1)+' vergrößern"><img loading="lazy" src="'+e(u)+'" alt="'+e(alt)+'"></button>').join("");
+  el.querySelectorAll(".gi").forEach(b=>b.onclick=()=>{lbListe=liste;zeigeBild(+b.dataset.i);auf(lb)});
+}
+const STUDIO_ANZAHL=6,galStudio=document.getElementById("gal-studio"),mehr=document.getElementById("gal-mehr");
+galerie(galStudio,GALERIE_STUDIO,"Unser Kosmetikstudio Kalis Cosmetics in Zierenberg bei Kassel",STUDIO_ANZAHL);
+if(GALERIE_STUDIO.length>STUDIO_ANZAHL){mehr.hidden=false;mehr.onclick=()=>{galStudio.querySelectorAll(".zu").forEach(b=>b.classList.remove("zu"));mehr.hidden=true}}
+const galErg=document.getElementById("gal-erg"),galTabs=document.getElementById("gal-tabs"),kategorien=Object.keys(GALERIE_ERGEBNISSE);
+galTabs.innerHTML=kategorien.map((k,i)=>'<button role="tab" aria-selected="'+(i===0)+'" data-k="'+e(k)+'">'+e(k)+'</button>').join("");
+function zeigeKategorie(k){
+  galTabs.querySelectorAll("button").forEach(b=>b.setAttribute("aria-selected",b.dataset.k===k));
+  galerie(galErg,GALERIE_ERGEBNISSE[k],k+" – Ergebnis bei Kalis Cosmetics in Zierenberg bei Kassel");
+}
+galTabs.querySelectorAll("button").forEach(b=>b.onclick=()=>zeigeKategorie(b.dataset.k));
+if(kategorien.length)zeigeKategorie(kategorien[0]);
 document.getElementById("lb-prev").onclick=()=>zeigeBild(lbI-1);
 document.getElementById("lb-next").onclick=()=>zeigeBild(lbI+1);
 document.getElementById("lb-zu").onclick=()=>zu(lb);

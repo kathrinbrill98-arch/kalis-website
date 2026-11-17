@@ -21,14 +21,13 @@ Einfache Website aus HTML-Dateien, ohne Baukasten und ohne Installation.
 - **Preis ändern:** Bei der Leistung den Wert hinter `"preis"` ändern.
 - **Aktionspreis:** Bei einem Preis `"aktion": "299 €"` und `"aktionBis": "2026-12-31"` ergänzen. Nach dem Datum erscheint automatisch wieder der normale Preis.
 - **Aktuelles/Specials:** Eintrag in `AKTUELLES` hinzufügen. Mit `"bis"` verschwindet er nach dem Datum von selbst.
-- **Galerie:** Foto hochladen (in den Hauptordner) und den Dateinamen in `GALERIE` eintragen, z. B. `"lippen-5.jpg"`. Die ersten 9 werden direkt gezeigt.
+- **Galerie:** Foto hochladen (in den Hauptordner) und den Dateinamen eintragen: Studio-Bilder in `GALERIE_STUDIO` (die ersten 6 werden direkt gezeigt), Arbeitsergebnisse in `GALERIE_ERGEBNISSE` bei der passenden Leistung, z. B. `"lippen-5.jpg"`. Jede Leistung dort wird automatisch ein eigener Reiter.
 - **Team:** In `TEAM` Name, Rolle, Foto und Text ändern.
 
 Fotos vorher verkleinern (ca. 1400 Pixel lange Seite), sonst lädt die Seite langsam.
 
 ## Noch offen
 
-- Gemeinsame Telefonnummer (aktuell steht überall Lisas Nummer)
 - USt-ID im Impressum, falls vorhanden (Platzhalter als Kommentar in `index.html`)
 - Datenschutztext von einer Fachperson prüfen lassen
 

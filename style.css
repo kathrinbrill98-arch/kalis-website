@@ -47,8 +47,14 @@ ul{list-style:none;margin:0;padding:0}li{display:flex;justify-content:space-betw
 .team{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:24px;text-align:center}
 .team img,.ph{width:130px;height:130px;border-radius:50%;object-fit:cover;object-position:top;background:var(--bg2);margin:0 auto 10px;display:block}
 .team h3{font-size:30px}.team p{font-size:15px;color:var(--mu);margin:3px 0}.team .rolle{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx);margin-bottom:8px}
-.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.gi{all:unset;cursor:zoom-in;display:block;overflow:hidden}.gi.zu{display:none}
+/* Galerie: Flex statt Raster, damit eine unvollständige letzte Reihe mittig steht */
+.gal{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.gi{all:unset;cursor:zoom-in;display:block;overflow:hidden;flex:0 0 calc((100% - 20px)/3);box-sizing:border-box}.gi.zu{display:none}
+.gal-titel{font-size:32px;text-align:center;margin:34px 0 18px}#galerie .sub+.gal-titel{margin-top:10px}
+.gal-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 auto 22px;max-width:1200px}
+.gal-tabs button{all:unset;cursor:pointer;padding:9px 16px;border:1px solid var(--tx);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--tx);transition:background .2s}
+.gal-tabs button:hover{background:var(--bg2)}.gal-tabs button:focus-visible{outline:2px solid var(--tx);outline-offset:2px}
+.gal-tabs button[aria-selected="true"]{background:var(--tx);color:var(--bg)}
 .gi img{width:100%;aspect-ratio:1;object-fit:cover;display:block;transition:transform .4s}.gi:hover img,.gi:focus-visible img{transform:scale(1.04)}.gi:focus-visible{outline:2px solid var(--tx)}
 .modal.lb{background:rgba(29,25,23,.95)}
 .lb img{max-width:92vw;max-height:88vh;object-fit:contain;display:block}
@@ -123,7 +129,7 @@ nav .nav-btn{background:var(--tx);color:var(--bg);padding:9px 16px}nav .nav-btn:
 @media(max-width:640px){nav .nav-btn{padding:8px 12px;font-size:11px}.logo{width:60px;height:60px}section{padding:40px 5vw}
   /* Preisliste am Handy ohne Spalten-Layout (Safari zeigt sonst große Leerflächen) */
   .preisliste{columns:auto;column-gap:0}.pl{break-inside:auto}
-  h2{margin-bottom:6px}.sub{margin-bottom:24px}.gal{grid-template-columns:repeat(2,1fr);gap:6px}.lb-nav{font-size:40px;padding:8px}
+  h2{margin-bottom:6px}.sub{margin-bottom:24px}.gal{gap:6px}.gi{flex-basis:calc((100% - 6px)/2)}.gal-titel{font-size:27px}.gal-tabs{gap:6px}.gal-tabs button{padding:8px 11px;font-size:11px;letter-spacing:.08em}.lb-nav{font-size:40px;padding:8px}
   /* Aktuelles: untereinander */
   .news{grid-template-columns:1fr;gap:16px}.card img{aspect-ratio:4/3}.card img.ganz{aspect-ratio:1}
   /* Leistungen: zwei Kacheln nebeneinander */

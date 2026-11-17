@@ -50,7 +50,7 @@ const AKTUELLES = [
     "bild": "einblick-3.jpg",
     "bis": "2026-12-31",
     "buchen": "",
-    "link": "https://wa.me/4917624388782?text=Hallo%2C%20ich%20m%C3%B6chte%20gern%20einen%20Cashmere-Brows-Gutschein%20f%C3%BCr%20299%20%E2%82%AC%20anfragen.",
+    "link": "https://wa.me/4915630010489?text=Hallo%2C%20ich%20m%C3%B6chte%20gern%20einen%20Cashmere-Brows-Gutschein%20f%C3%BCr%20299%20%E2%82%AC%20anfragen.",
     "linkText": "Per WhatsApp anfragen",
     "link2": "mailto:info@kaliscosmetics.de?subject=Gutschein%20Cashmere%20Brows&body=Hallo%20Kathi%2C%0A%0Aich%20m%C3%B6chte%20gern%20einen%20Cashmere-Brows-Gutschein%20f%C3%BCr%20299%20%E2%82%AC.%0A%0AViele%20Gr%C3%BC%C3%9Fe",
     "link2Text": "oder per E-Mail an info@kaliscosmetics.de"
@@ -405,50 +405,77 @@ const TEAM = [
   }
 ];
 
-// Galerie "Einblicke"
-// Reihenfolge = Anzeige. Erst 9 (PC) bzw. 10 (Handy) Bilder, der Rest nach Klick auf "Mehr anzeigen".
-// Die ersten Bilder bewusst gemischt: Studio + möglichst viele verschiedene Leistungen.
-const GALERIE = [
+// Galerie "Einblicke" – zwei Bereiche (Reihenfolge = Anzeige)
+// 1) Unser Studio: die ersten 6 Bilder werden direkt gezeigt, der Rest nach "Mehr anzeigen".
+// 2) Ergebnisse unserer Arbeit: je Leistung ein Reiter. Neue Kategorie = neue Zeile mit Namen und Bildern.
+const GALERIE_STUDIO = [
   "behandlungsraum.jpg",
-  "lippen-1.jpg",
-  "wimpern-lisa.jpg",
-  "kryo-bauch-seite.jpg",
+  "studio-flur.jpg",
+  "studio-fenster.jpg",
   "einblick-3.jpg",
-  "lymph-1.jpg",
-  "naegel-schneeflocken.jpg",
-  "einblick-7.jpg",
+  "studio-treppe.jpg",
   "schild.jpg",
-  "waxing.jpg",
   "studio-licht.jpg",
-  "lippen-2.jpg",
-  "lymph-2.jpg",
-  "kryo-doppelkinn.jpg",
-  "wimpern-korea.jpg",
+  "einblick-7.jpg",
   "studio-vase.jpg",
-  "produkte.jpg",
-  "kryo-arm.jpg",
-  "lymph-3.jpg",
-  "lippen-3.jpg",
   "einblick-4.jpg",
-  "massage-bein.jpg",
-  "kryo-oberschenkel.jpg",
-  "wimpern-auge.jpg",
-  "schild-blumen.jpg",
-  "lymph-4.jpg",
-  "fusspflege-2.jpg",
-  "lippen-4.jpg",
-  "kryo-ruecken.jpg",
-  "einblick-1.jpg",
-  "einblick-2.jpg",
+  "produkte.jpg",
   "einblick-6.jpg",
-  "kryo-bauch-vorne.jpg",
-  "lymph-5.jpg",
-  "fusspflege-3.jpg",
-  "naegel-kirschen.jpg",
-  "naegel-nude.jpg",
-  "naegel-schmetterling.jpg",
+  "schild-blumen.jpg",
+  "einblick-2.jpg",
   "vase.jpg",
-  "einblick-5.jpg",
-  "laura-naegel.jpg",
-  "natur.jpg"
+  "einblick-1.jpg"
 ];
+
+const GALERIE_ERGEBNISSE = {
+  "Permanent Make-up": [
+    "lippen-1.jpg",
+    "lippen-2.jpg",
+    "wimpern-auge.jpg",
+    "lippen-3.jpg",
+    "lippen-4.jpg"
+  ],
+  "Brasilianische Lymphdrainage": [
+    "lymph-1.jpg",
+    "lymph-2.jpg",
+    "lymph-3.jpg",
+    "massage-bein.jpg",
+    "lymph-4.jpg",
+    "lymph-5.jpg"
+  ],
+  "Kryolipolyse": [
+    "kryo-behandlung.jpg",
+    "kryo-bauch-seite.jpg",
+    "kryo-doppelkinn.jpg",
+    "kryo-ruecken-2.jpg",
+    "kryo-arm.jpg",
+    "kryo-oberschenkel.jpg",
+    "kryo-bauch-vorne.jpg",
+    "kryo-ruecken.jpg"
+  ],
+  "Wimpern & Brauen": [
+    "wimpern-volumen.jpg",
+    "wimpern-lisa.jpg",
+    "wimpern-gesicht-1.jpg",
+    "wimpern-korea.jpg",
+    "wimpern-gesicht-2.jpg",
+    "wimpern-nah.jpg",
+    "wimpern-gesicht-3.jpg",
+    "wimpern-gesicht-4.jpg",
+    "wimpern-gesicht-5.jpg"
+  ],
+  "Nageldesign": [
+    "naegel-schneeflocken.jpg",
+    "naegel-kirschen.jpg",
+    "naegel-nude.jpg",
+    "einblick-5.jpg",
+    "naegel-schmetterling.jpg",
+    "laura-naegel.jpg",
+    "natur.jpg"
+  ],
+  "Waxing & Fußpflege": [
+    "waxing.jpg",
+    "fusspflege-2.jpg",
+    "fusspflege-3.jpg"
+  ]
+};
