@@ -478,8 +478,7 @@ const GALERIE_ERGEBNISSE = {
     "einblick-5.jpg",
     "naegel-wellen.jpg",
     "naegel-schmetterling.jpg",
-    "laura-naegel.jpg",
-    "natur.jpg"
+    "laura-naegel.jpg"
   ],
   "Waxing & Fußpflege": [
     "waxing.jpg",
