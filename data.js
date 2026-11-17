@@ -439,7 +439,6 @@ const GALERIE_ERGEBNISSE = {
     "lymph-1.jpg",
     "lymph-2.jpg",
     "lymph-3.jpg",
-    "massage-bein.jpg",
     "lymph-4.jpg",
     "lymph-5.jpg"
   ],
