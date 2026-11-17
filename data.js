@@ -465,10 +465,18 @@ const GALERIE_ERGEBNISSE = {
     "wimpern-gesicht-5.jpg"
   ],
   "Nageldesign": [
+    "naegel-bordeaux.jpg",
     "naegel-schneeflocken.jpg",
+    "naegel-leo.jpg",
+    "naegel-schleife.jpg",
     "naegel-kirschen.jpg",
+    "naegel-herz.jpg",
+    "naegel-gruen.jpg",
     "naegel-nude.jpg",
+    "naegel-strass.jpg",
+    "naegel-gold-schnee.jpg",
     "einblick-5.jpg",
+    "naegel-wellen.jpg",
     "naegel-schmetterling.jpg",
     "laura-naegel.jpg",
     "natur.jpg"
